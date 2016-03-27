@@ -1,0 +1,24 @@
+Dim Path as String
+
+Call SelectFiles(Path)
+
+'This sub returns the selected Path by the user
+Sub SelectFiles(Path As String)
+
+    Dim iFileSelect As FileDialog
+    Set iFileSelect = Application.FileDialog(msoFileDialogOpen)
+    With iFileSelect
+        .AllowMultiSelect = True
+        .Title = "Import data from"
+        .Filters.Clear
+        .Filters.Add "Excel Risikoregister", "*.xls;*.xlsx"
+        .InitialView = msoFileDialogViewDetails
+        If .Show = -1 Then
+            Dim vrtSelectedItem
+           For Each vrtSelectedItem In iFileSelect.SelectedItems
+                Path = vrtSelectedItem
+            Next vrtSelectedItem
+        End If
+    End With
+    Set iFileSelect = Nothing
+End Sub
