@@ -1,0 +1,21 @@
+Sub MessageBox()
+    Dim iRet As Integer
+    Dim strPrompt As String
+    Dim strTitle As String
+ 
+    ' MsgBox
+    strPrompt = "Do you want to do ...?"
+ 
+    ' Dialog's Title
+    strTitle = "This is the Dialog title"
+ 
+    'Show MessageBox 
+    iRet = MsgBox(strPrompt, vbYesNo, strTitle)
+
+    If iRet = vbNo Then
+      ' ...
+    Else
+      ' ...
+    End If
+
+End Sub
